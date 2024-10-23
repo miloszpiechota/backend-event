@@ -39,7 +39,7 @@ model Events {
     end_date                DateTime?           @db.DateTime(0)
     description             String?             @db.VarChar(1024)
     number_of_ticket        Int
-    photo                   Bytes?              @db.Blob
+    photo                   String?             @db.VarChar(1024) // Zmieniono z Bytes? na String
     contact_info            String              @db.VarChar(256)
     idevent_category        Int
     idevent_location        Int
@@ -50,6 +50,8 @@ model Events {
     comments                Comments[]
     favourite_events        Favourite_events[]
 }
+
+
 
 model Event_categories {
     idevent_category        Int                 @id @default(autoincrement())

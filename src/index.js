@@ -9,7 +9,8 @@ const app = express()
 const PORT = process.env.PORT;
 // const users_controllers = express.Router()
 import users_controllers from "./routes/UsersRoutes"
-
+import categoryRoutes from "./routes/category.js";
+import eventRoutes from "./routes/events.js";
 import { rateLimit } from "express-rate-limit"
 
 // RATE LIMIT, THE PROCESS OF LIMITING THE NUMBER OF USER/CLIENT REQUSET ON CERTAIN RESOURCES
@@ -56,6 +57,9 @@ app.use(express.static(path.join(__dirname, "../static")))
 //  ROUTES
 app.use("/api", users_controllers)
 
+app.use(cors());
+app.use("/api/categories", categoryRoutes);
+app.use("/api/events", eventRoutes);
 //  LISTENER
 app.listen(PORT, () => {
     console.log(`Server is up and running on port ${PORT}`);
