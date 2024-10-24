@@ -49,6 +49,8 @@ model Events {
     event_tickets           Event_tickets[]
     comments                Comments[]
     favourite_events        Favourite_events[]
+    is_seat_categorized     Boolean             // Nowe pole typu Boolean
+    ticket_price            Float               @db.Float
 }
 
 
